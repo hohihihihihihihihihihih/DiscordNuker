@@ -8,3 +8,5 @@ Before you start, this is for educational purposes
 2) After you downloaded it successfully go into src/config.json to add your bot token and make changes
 
 3) Now start the src/nuker.bat file and have fun!
+
+![alt text](https://cdn.discordapp.com/attachments/930851376949518346/930887758048809020/preview.png)
