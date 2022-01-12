@@ -23,7 +23,6 @@ let client = new Discord.Client({
 })
 client.config = JSON.parse(fs.readFileSync("config.json", "utf-8"));
 
-
 client.on('ready', ()=>{
     console.clear();
     console.log(`${FgMagenta}
@@ -34,13 +33,12 @@ client.on('ready', ()=>{
 			██║░░██║██║██║░░██║╚█████╔╝██████╔╝██║░░██║██║
 			╚═╝░░╚═╝╚═╝╚═╝░░╚═╝░╚════╝░╚═════╝░╚═╝░░╚═╝╚═╝
     
-					${FgMagenta}Nuker: ${FgBlue}${client.user.tag}${FgMagenta}
+					${FgMagenta}Nuker:${FgBlue}${client.user.tag}${FgMagenta}
 					${FgMagenta}Prefix: ${FgBlue}${prefix}${FgMagenta}
+					${FgMagenta}Token:
+                    ${FgWhite}${client.config.token}${FgMagenta}
 
-					Commands:
-                    ${FgWhite}
-			${prefix}banAll: Ban all the members
-			${prefix}kickAll: Kick all the members
+					Commands:${FgWhite}
 			${prefix}nuke: Deletes all Channels and Displays your channel Names
 			${prefix}delete: Deletes all Channels
     `)
@@ -49,7 +47,9 @@ client.on('ready', ()=>{
     if(client.config.avatarURL !== ""){
         client.user.setAvatar(client.config.avatarURL)
     }
-    client.user.setUsername(client.config.botName);
+    if(client.config.botName !== ""){
+        client.user.setUsername(client.config.botName);
+    }
 })
 
 
